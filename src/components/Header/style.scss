@@ -1,0 +1,23 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: var(--primary-color);
+
+  .title {
+    color: var(--text-color);
+    font-size: larger;
+    font-weight: var(--font-weight-normal);
+  }
+
+  .save-btn {
+    cursor: pointer;
+    border: 1px solid var(--primary-btn-color);
+    background-color: var(--primary-btn-color);
+    color: var(--color-white);
+    font-weight: var(--font-weight-normal);
+    border-radius: 8px;
+    padding: 10px 20px;
+  }
+}

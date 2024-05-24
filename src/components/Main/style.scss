@@ -1,0 +1,29 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 90vh;
+
+  .board-container {
+    height: 100%;
+    flex-basis: 80%;
+  }
+
+  .side-container {
+    height: 100%;
+    flex-basis: 20%;
+    border-left: 6px solid var(--primary-color);
+  }
+
+  .node-container {
+    cursor: pointer;
+    border: 2px solid var(--primary-btn-color);
+    color: var(--primary-btn-color);
+    border-radius: 8px;
+    width: 180px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px 20px;
+  }
+}
