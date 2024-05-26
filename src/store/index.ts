@@ -1,39 +1,24 @@
 import { create } from "zustand";
-
-interface Position {
-  x: number;
-  y: number;
-}
-
-interface NodeData {
-  id: string;
-  data: { label: string };
-  position: Position;
-  type?: string;
-}
-
+import { Edge, Node } from "reactflow";
 interface AppState {
-  nodeList: NodeData[];
+  nodeList: Node[];
+  edgeList: Edge[];
 }
 
 interface AppActions {
-  createNode: (newNode: NodeData) => void;
+  createNewNode: (newNodes: Node) => void;
+  createNewEdge: (newEdges: Edge) => void;
+  updateNode: (newNodes: Node[]) => void;
+  updateEdge: (newEdges: Edge[]) => void;
 }
 
 export const useStore = create<AppState & AppActions>((set) => ({
-  nodeList: [
-    {
-      id: "1",
-      data: { label: "Hello" },
-      position: { x: 0, y: 0 },
-      type: "input",
-    },
-    {
-      id: "2",
-      data: { label: "World" },
-      position: { x: 100, y: 100 },
-    },
-  ],
-  createNode: (newNode) =>
-    set((state) => ({ nodeList: [...state.nodeList, newNode] })),
+  nodeList: [],
+  edgeList: [],
+  createNewNode: (newList) =>
+    set((state) => ({ nodeList: state.nodeList.concat(newList) })),
+  createNewEdge: (newEdge) =>
+    set((state) => ({ edgeList: [...state.edgeList, newEdge] })),
+  updateNode: (newList) => set({ nodeList: newList }),
+  updateEdge: (newEdge) => set({ edgeList: newEdge }),
 }));
